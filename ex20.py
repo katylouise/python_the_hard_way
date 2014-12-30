@@ -10,7 +10,7 @@ def print_all(f):
 	print f.read()
 
 #define function rewind taking one arg (f)
-#the function sets file position to 0 (beginning)
+#the function sets file position to 0 byte position (beginning)
 def rewind(f):
 	f.seek(0)
 
