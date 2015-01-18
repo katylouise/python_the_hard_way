@@ -5,6 +5,7 @@ def jewel_room():
 	print "There is a dragon guarding the jewels."
 	print "He asks you for the magic word."
 	print "What is the magic word?"
+	print "Hint: be polite."
 
 	choice = raw_input("> ")
 
@@ -13,10 +14,12 @@ def jewel_room():
 		print "The dragon moves."
 		print "How many gems do you want to take?"
 
-		how_much = raw_input("> ")
+		how_much = int(raw_input("> "))
 
 		if how_much <= 50:
 			print "Here you go!"
+			print "Thanks for playing."
+			print "Enjoy your gems!"
 			exit(0)
 
 		elif how_much > 50: 
@@ -49,7 +52,7 @@ def mirror_room():
 		snake_room()
 
 	else:
-		dead("The wizard kills you for your ungratefulness.")
+		dead("The wizard kills you for your ungratefulness and poor spelling.")
 
 def snake_room():
 	print "You are in a room full of snakes."
@@ -64,15 +67,16 @@ def snake_room():
 		print "You wake up back in the room of mirrors."
 		mirror_room()
 
-	elif choice == "fight":
+	elif choice == "fight it":
 		dead("You lose and the snake squeezes you to death.")
 
-	elif choice == "charm":
+	elif choice == "charm it":
 		print "The snake falls asleep and moves out the way."
 		water_room()
 
 	else:
-		print "Those are the only three options!"
+		print "That's not going to work!"
+		dead("The snake eats your head.")
 
 def water_room():
 	print "You are in a room filled with a giant lake."
@@ -86,7 +90,6 @@ def water_room():
 
 	elif choice == "bridge":
 		print "You slip on the wet bridge, knocking yourself unconcious."
-		print "You wake up back in the room of mirrors."
 		mirror_room()
 
 	elif choice == "armbands":
@@ -95,7 +98,16 @@ def water_room():
 
 def dead(why):
 	print why, "Shame Shame!"
-	exit(0)
+	print "****************"
+	print "Play Again?"
+
+	choice = (raw_input("> ")).lower()
+
+	if choice == "yes":
+		start()
+
+	else:
+		exit(0)
 
 def start():
 	print "You are in a dark corridor."
